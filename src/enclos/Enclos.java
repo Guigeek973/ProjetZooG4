@@ -1,10 +1,7 @@
 package enclos;
 
 import java.util.List;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 import animaux.Animal;
 
 public class Enclos {
