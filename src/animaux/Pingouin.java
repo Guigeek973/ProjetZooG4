@@ -10,14 +10,13 @@ public class Pingouin extends Animal implements INageant, IOvipare{
 
 	@Override
 	protected void manger() {
-		// TODO Auto-generated method stub
+		System.out.println("Le pingouin se jette sur les poissons données.");
 		
 	}
 
 	@Override
 	protected void crier() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Le pingouin pousse un cri !");
 	}
 
 }
