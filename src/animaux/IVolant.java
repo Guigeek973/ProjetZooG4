@@ -1,5 +1,8 @@
 package animaux;
 
-public interface IVolant {
-
+public interface IVolant{
+	
+	public static void voler() {
+		
+	}
 }

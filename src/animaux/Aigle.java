@@ -19,5 +19,10 @@ public class Aigle extends Animal implements IVolant, IOvipare {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void pondre() {
+		
+		
+	}
 
 }

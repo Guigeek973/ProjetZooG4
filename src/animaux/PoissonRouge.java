@@ -1,6 +1,6 @@
 package animaux;
 
-public class PoissonRouge extends Animal {
+public class PoissonRouge extends Animal implements INageant, IOvipare{
 
 	public PoissonRouge(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {

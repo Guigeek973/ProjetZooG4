@@ -1,6 +1,6 @@
 package animaux;
 
-public class Ours extends Animal implements ITerrestre{
+public class Ours extends Animal implements ITerrestre, IMammifere{
 
 	public Ours(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {

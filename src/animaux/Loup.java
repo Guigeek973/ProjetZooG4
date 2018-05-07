@@ -1,6 +1,6 @@
 package animaux;
 
-public class Loup extends Animal implements ITerrestre{
+public class Loup extends Animal implements ITerrestre, IMammifere{
 
 	public Loup(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {
