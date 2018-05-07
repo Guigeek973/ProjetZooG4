@@ -74,7 +74,16 @@ public abstract class Animal {
 		this.indicateurSante = indicateurSante;
 	}
 	
-	public abstract void manger();
-	public abstract void crier();
-	public abstract void etreSoigne();
+	protected abstract void manger();	
+	protected abstract void crier();
+	
+	public void etreSoigne() {
+		this.setIndicateurSante(true); 
+	}
+	public void changerEtatSommeil() {
+		if (this.getIndicateurSommeil())  { 
+			this.setIndicateurSommeil(false); 
+		}
+		else this.setIndicateurSommeil(true); 
+	}
 }
