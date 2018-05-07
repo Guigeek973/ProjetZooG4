@@ -6,7 +6,7 @@ public abstract class Animal {
 	private Double poids;
 	private Double taille;
 	private Double age ;
-	private Boolean indicateurFaim ;
+	private int indicateurFaim;
 	private Boolean indicateurSommeil;
 	private Boolean indicateurSante;
 	
@@ -18,7 +18,7 @@ public abstract class Animal {
 		this.poids = poids;
 		this.taille = taille;
 		this.age = age;
-		this.indicateurFaim = indicateurFaim;
+		this.indicateurFaim = 100;
 		this.indicateurSommeil = indicateurSommeil;
 		this.indicateurSante = indicateurSante;
 	}
@@ -40,7 +40,7 @@ public abstract class Animal {
 	public Double getAge() {
 		return age;
 	}
-	public Boolean getIndicateurFaim() {
+	public int getIndicateurFaim() {
 		return indicateurFaim;
 	}
 	public Boolean getIndicateurSommeil() {
@@ -64,8 +64,8 @@ public abstract class Animal {
 	public void setAge(Double age) {
 		this.age = age;
 	}
-	public void setIndicateurFaim(Boolean indicateurFaim) {
-		this.indicateurFaim = indicateurFaim;
+	public void setIndicateurFaim(int pointsDeFaim) {
+		this.indicateurFaim = pointsDeFaim;
 	}
 	public void setIndicateurSommeil(Boolean indicateurSommeil) {
 		this.indicateurSommeil = indicateurSommeil;
@@ -74,7 +74,9 @@ public abstract class Animal {
 		this.indicateurSante = indicateurSante;
 	}
 	
-	protected abstract void manger();	
+	protected void manger() {
+		this.setIndicateurFaim(100);
+	}
 	protected abstract void crier();
 	
 	public void etreSoigne() {

@@ -34,16 +34,16 @@ public class Employe {
 		this.age = age;
 	}
 	
-	public void examinerEnclos (Enclos enclos) {
+	public void examinerEnclos (Enclos<Animal> enclos) {
 		//en affichant les caractéristiques de l’enclos ainsi que la liste des animaux) ;
 	}
-	public void nettoyerEnclos(Enclos enclos) {
+	public void nettoyerEnclos(Enclos<Animal> enclos) {
 		
 	}
-	public void nourrirAnimauxEnclos(Enclos enclos) {
+	public void nourrirAnimauxEnclos(Enclos<Animal> enclos) {
 		
 	}
-	public void transférerAnimalToEnclos(Animal a, Enclos enclos) {
+	public void transférerAnimalToEnclos(Animal a, Enclos<Animal> enclos) {
 		
 	}
 }

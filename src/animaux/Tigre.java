@@ -10,14 +10,12 @@ public class Tigre extends Animal implements ITerrestre, IMammifere{
 
 	@Override
 	protected void manger() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Le tigre déchicte le morceau de viande donné.");
 	}
 
 	@Override
 	protected void crier() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Groaaaaaaarrrghhh !!!");
 	}
 
 }
