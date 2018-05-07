@@ -9,18 +9,17 @@ public class Aigle extends Animal implements IVolant, IOvipare {
 
 	@Override
 	public void manger() {
-		// TODO Auto-generated method stub
+		System.out.println("L'aigle déchiquète la viande.");
 		
 	}
 
 	@Override
 	public void crier() {
-		// TODO Auto-generated method stub
+		System.out.println("L'aigle pousse un cri strident !");
 		
 	}
 	
 	public void pondre() {
-		
 		
 	}
 

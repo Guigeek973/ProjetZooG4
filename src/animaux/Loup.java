@@ -10,13 +10,13 @@ public class Loup extends Animal implements ITerrestre, IMammifere{
 
 	@Override
 	protected void manger() {
-		// TODO Auto-generated method stub
+		System.out.println("Le loup dévore la viande.");
 		
 	}
 
 	@Override
 	protected void crier() {
-		// TODO Auto-generated method stub
+		System.out.println("Le loup hurle très fort !");
 		
 	}
 

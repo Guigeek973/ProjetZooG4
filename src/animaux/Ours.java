@@ -10,13 +10,13 @@ public class Ours extends Animal implements ITerrestre, IMammifere{
 
 	@Override
 	protected void manger() {
-		// TODO Auto-generated method stub
+		System.out.println("L'ours mange la viande.");
 		
 	}
 
 	@Override
 	protected void crier() {
-		// TODO Auto-generated method stub
+		System.out.println("L'ours hurle au vent !");
 		
 	}
 

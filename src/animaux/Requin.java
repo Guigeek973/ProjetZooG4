@@ -10,14 +10,12 @@ public class Requin extends Animal implements INageant, IMammifere {
 
 	@Override
 	protected void manger() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Le requin déchire la chair de poisson donnée.");
 	}
 
 	@Override
 	protected void crier() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Le requin sort de l'eau et pousse un cri !");
 	}
 
 }
