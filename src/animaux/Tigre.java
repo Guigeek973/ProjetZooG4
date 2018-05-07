@@ -1,8 +1,8 @@
 package animaux;
 
-public class Tigres extends Animal {
+public class Tigre extends Animal {
 
-	public Tigres(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
+	public Tigre(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {
 		super(nomEspece, sexe, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
 		// TODO Auto-generated constructor stub
