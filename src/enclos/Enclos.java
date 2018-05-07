@@ -4,19 +4,19 @@ import java.util.List;
 
 import animaux.Animal;
 
-public class Enclos {
+public abstract class Enclos <T> {
 	
 	private String nom;
-	private double superficie;
+	private float superficie;
 	private int nbAnimauxMax;
-	private List<Animal> lesAnimaux;
+	private List<T> lesAnimaux;
 	private enum EtatProprete {
 		Mauvais,
 		Correct,
 		Bon
 	}
 	
-	public Enclos(String nom, double superficie, int nbAnimauxMax, List<Animal> lesAnimaux) {
+	public Enclos(String nom, float superficie, int nbAnimauxMax, List<T> lesAnimaux) {
 		super();
 		this.nom = nom;
 		this.superficie = superficie;
@@ -34,7 +34,7 @@ public class Enclos {
 	public double getSuperficie() {
 		return superficie;
 	}
-	public void setSuperficie(double superficie) {
+	public void setSuperficie(float superficie) {
 		this.superficie = superficie;
 	}
 	
@@ -49,10 +49,10 @@ public class Enclos {
 		return lesAnimaux.size();
 	}
 	
-	public List<Animal> getLesAnimaux() {
+	public List<T> getLesAnimaux() {
 		return lesAnimaux;
 	}
-	public void setLesAnimaux(List<Animal> lesAnimaux) {
+	public void setLesAnimaux(List<T> lesAnimaux) {
 		this.lesAnimaux = lesAnimaux;
 	}
 }
