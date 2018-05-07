@@ -20,7 +20,15 @@ public class Aigle extends Animal implements IVolant, IOvipare {
 		
 	}
 	
+	@Override
+	public void voler() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void pondre() {
+		// TODO Auto-generated method stub
 		
 	}
 

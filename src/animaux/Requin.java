@@ -18,4 +18,16 @@ public class Requin extends Animal implements INageant, IMammifere {
 		System.out.println("Le requin sort de l'eau et pousse un cri !");
 	}
 
+	@Override
+	public void mettreBas() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void nager() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

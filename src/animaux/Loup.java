@@ -20,4 +20,15 @@ public class Loup extends Animal implements ITerrestre, IMammifere{
 		
 	}
 
+	@Override
+	public void vagabonder() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void mettreBas() {
+		// TODO Auto-generated method stub
+		
+	}
 }

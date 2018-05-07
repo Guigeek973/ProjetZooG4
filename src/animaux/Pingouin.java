@@ -19,4 +19,17 @@ public class Pingouin extends Animal implements INageant, IOvipare{
 		System.out.println("Le pingouin pousse un cri !");
 	}
 
+	@Override
+	public void pondre() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void nager() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

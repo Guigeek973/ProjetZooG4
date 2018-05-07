@@ -19,4 +19,18 @@ public class Baleine extends Animal implements INageant, IMammifere{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void mettreBas() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void nager() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+

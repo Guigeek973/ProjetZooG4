@@ -10,12 +10,23 @@ public class PoissonRouge extends Animal implements INageant, IOvipare{
 
 	@Override
 	protected void manger() {
-		// TODO Auto-generated method stub
+		System.out.println("Le poisson rouge mange.");
 		
 	}
 
 	@Override
 	protected void crier() {
+		System.out.println("Le poisson rouge pousse un petit cri...");
+	}
+
+	@Override
+	public void pondre() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void nager() {
 		// TODO Auto-generated method stub
 		
 	}

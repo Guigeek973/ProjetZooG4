@@ -1,6 +1,5 @@
 package animaux;
 
 public interface INageant {
-	public static void nager() {
-	}
+	public void nager();
 }

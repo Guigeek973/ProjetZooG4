@@ -17,5 +17,18 @@ public class Tigre extends Animal implements ITerrestre, IMammifere{
 	protected void crier() {
 		System.out.println("Groaaaaaaarrrghhh !!!");
 	}
+	
+
+	@Override
+	public void vagabonder() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void mettreBas() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

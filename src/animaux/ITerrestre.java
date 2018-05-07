@@ -1,7 +1,5 @@
 package animaux;
 
 public interface ITerrestre {
-	public static void vagabonder() {
-		
-	}
+	public void vagabonder();
 }
