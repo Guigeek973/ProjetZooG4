@@ -2,10 +2,10 @@ package animaux;
 
 public class Ours extends Animal implements ITerrestre, IMammifere{
 
-	public Ours(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
+	public Ours(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, sexe, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
-		// TODO Auto-generated constructor stub
+		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+		
 	}
 
 	@Override

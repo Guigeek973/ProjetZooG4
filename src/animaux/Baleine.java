@@ -2,12 +2,12 @@ package animaux;
 
 public class Baleine extends Animal implements INageant, IMammifere{
 
-	public Baleine(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
+	public Baleine(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, sexe, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public void manger() {
 		// TODO Auto-generated method stub
