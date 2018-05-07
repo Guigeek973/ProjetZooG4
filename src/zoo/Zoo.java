@@ -27,11 +27,9 @@ public class Zoo {
 	
 	
 	public void modifierEtatAnimaux() {
-		
 		// (les rendre malades, les endormir, etc.) aleatoire
 	}
 	public void modifierEtatEnclos() {
-		
 		// (leur propreté, leur salinité, etc.) aleatoire
 	}
 	
