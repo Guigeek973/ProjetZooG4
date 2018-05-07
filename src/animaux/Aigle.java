@@ -2,10 +2,9 @@ package animaux;
 
 public class Aigle extends Animal implements IVolant, IOvipare {
 
-	public Aigle(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
+	public Aigle(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
 			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, sexe, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
-		// TODO Auto-generated constructor stub
+		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
 	}
 
 	@Override

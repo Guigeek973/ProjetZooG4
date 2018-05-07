@@ -2,19 +2,19 @@ package animaux;
 
 public abstract class Animal {
 	private String nomEspece;
-	private String sexe;
-	private Double poids;
-	private Double taille;
-	private Double age ;
+	private Boolean isMale;
+	private float poids;
+	private float taille;
+	private int age ;
 	private int indicateurFaim;
 	private Boolean indicateurSommeil;
 	private Boolean indicateurSante;
 	
-	public Animal(String nomEspece, String sexe, Double poids, Double taille, Double age, Boolean indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
+	public Animal(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
+				  Boolean indicateurSommeil, Boolean indicateurSante) {
 		super();
 		this.nomEspece = nomEspece;
-		this.sexe = sexe;
+		this.isMale = isMale;
 		this.poids = poids;
 		this.taille = taille;
 		this.age = age;
@@ -28,16 +28,16 @@ public abstract class Animal {
 	public String getNomEspece() {
 		return nomEspece;
 	}
-	public String getSexe() {
-		return sexe;
+	public Boolean getIsMale() {
+		return isMale;
 	}
-	public Double getPoids() {
+	public float getPoids() {
 		return poids;
 	}
-	public Double getTaille() {
+	public float getTaille() {
 		return taille;
 	}
-	public Double getAge() {
+	public int getAge() {
 		return age;
 	}
 	public int getIndicateurFaim() {
@@ -52,16 +52,16 @@ public abstract class Animal {
 	public void setNomEspece(String nomEspece) {
 		this.nomEspece = nomEspece;
 	}
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
+	public void setSexe(Boolean isMale) {
+		this.isMale = isMale;
 	}
-	public void setPoids(Double poids) {
+	public void setPoids(float poids) {
 		this.poids = poids;
 	}
-	public void setTaille(Double taille) {
+	public void setTaille(float taille) {
 		this.taille = taille;
 	}
-	public void setAge(Double age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public void setIndicateurFaim(int pointsDeFaim) {
