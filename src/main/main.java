@@ -63,12 +63,13 @@ public class main {
 		
 		int nbAction = 0;
 		int nbActionZoo = 0;
-			while (nbActionZoo < 2) {
+			while (nbActionZoo < 1) {
 				nbActionZoo += 1;
 				System.out.println("Modification aléatoire des animaux et enclos par le Zoo...");
 				zoo.modifierEtatAnimaux();
 				zoo.modifierEtatEnclos();
 				System.out.println("Attente de la fin du processus...");
+				//Les animaux perdent 30 de faim tous les jours
 			}
 			while (nbAction <= 5) {
 				nbAction += 1;

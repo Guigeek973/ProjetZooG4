@@ -37,9 +37,9 @@ public class Loup extends AnimalTerrestre implements IMammifere{
 				nbEnfants += 1;
 				int nbRandom = rand.nextInt(2 - 1 + 1) + 1;
 				if (nbRandom == 2)
-					this.getEnclos().addAnimal(new Aigle(this.getNomEspece(), Sexe.Male, 100, 10, 0));
+					this.getEnclos().addAnimal(new Loup(this.getNomEspece(), Sexe.Male, 100, 10, 0));
 				else if (nbRandom == 1)
-					this.getEnclos().addAnimal(new Aigle(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
+					this.getEnclos().addAnimal(new Loup(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
 			}
 		}
 	}
