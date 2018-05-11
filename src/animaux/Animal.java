@@ -91,8 +91,6 @@ public abstract class Animal {
 		else this.setIndicateurSommeil(true); 
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Animal [nomEspece=" + nomEspece + ", sexe=" + sexe + ", poids=" + poids + ", taille=" + taille
