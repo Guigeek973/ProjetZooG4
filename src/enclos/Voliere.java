@@ -14,10 +14,10 @@ public class Voliere extends Enclos <AnimalVolant> {
 	}
 	private EtatV etatToit;
 	
-	public Voliere(String nom, float superficie, int nbAnimauxMax, float hauteur) {
-		super(nom, superficie, nbAnimauxMax);
+	public Voliere(String nom, float superficie, int nbAnimauxMax, float hauteur, List<AnimalVolant> list) {
+		super(nom, superficie, nbAnimauxMax, list);
 		this.hauteur = hauteur;
-		this.etatToit = EtatV.Bon;;
+		this.etatToit = EtatV.Bon;
 	}
 	public float getHauteur() {
 		return hauteur;

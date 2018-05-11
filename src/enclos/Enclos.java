@@ -18,12 +18,12 @@ public abstract class Enclos <T>{
 	}
 	private EtatProprete proprete;
 	
-	public Enclos(String nom, float superficie, int nbAnimauxMax) {
+	public Enclos(String nom, float superficie, int nbAnimauxMax, List<T> list) {
 		super();
 		this.nom = nom;
 		this.superficie = superficie;
 		this.nbAnimauxMax = nbAnimauxMax;
-		this.lesAnimaux = new ArrayList<>();
+		this.lesAnimaux = list;
 		this.proprete = EtatProprete.Bon;
 	}
 	

@@ -6,10 +6,8 @@ import animaux.AnimalTerrestre;
 
 public class EnclosStandard extends Enclos<AnimalTerrestre>{
 
-	public EnclosStandard(String nom, float superficie, int nbAnimauxMax) {
-		super(nom, superficie, nbAnimauxMax);
+	public EnclosStandard(String nom, float superficie, int nbAnimauxMax, List<AnimalTerrestre> list) {
+		super(nom, superficie, nbAnimauxMax, list);
 	}
-	
-	
 
 }

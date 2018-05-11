@@ -22,19 +22,20 @@ public class Zoo {
 	private int nbEnclos;
 	private List<Enclos<?>> listEnclos;
 
-	public Zoo(String nom, Employe employé, int nbEnclosMax, int nbEnclos) {
+	public Zoo(String nom, Employe employé, int nbEnclosMax, int nbEnclos, List<Enclos<?>> list) {
 		super();
 		this.nom = nom;
 		this.employé = employé;
 		this.nbEnclosMax = nbEnclosMax;
 		this.nbEnclos = nbEnclos;
-		this.listEnclos = new ArrayList<>();
+		this.listEnclos = list;
 	}
 	public List<Enclos<?>> getListEnclos() {
 		return listEnclos;
 	}
 	public void setListEnclos(List<Enclos<?>> listEnclos) {
 		this.listEnclos = listEnclos;
+		
 	}
 	public String getNom() {
 		return nom;
@@ -164,9 +165,10 @@ public class Zoo {
 	    		 }
 	    		 int z = sc.nextInt();
 	    		 System.out.println("Selectionnez l'enclos vers lequel transferer :");
+	    		 int ite = 0;
 	    		 for (Enclos<?> enclos : this.getListEnclos()) {
-	    				it += 1;
-	    				System.out.println(it + "." + enclos.toString());
+	    				ite += 1;
+	    				System.out.println(ite + "." + enclos.toString());
 	    			}
 	    		 int a = sc.nextInt();
 	    		 this.getEmployé().transférerAnimalToEnclos((Animal)this.getListEnclos().get(i-1).getLesAnimaux().get(z-1), (Enclos<Animal>)this.getListEnclos().get(i-1), (Enclos<Animal>)this.getListEnclos().get(a-1));

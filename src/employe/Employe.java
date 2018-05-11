@@ -1,5 +1,7 @@
 package employe;
 
+import java.util.Iterator;
+
 import animaux.Animal;
 import enclos.Enclos;
 import zoo.Zoo;
@@ -50,8 +52,11 @@ public class Employe {
 		if (enclos.getNbAnimauxPresents() == 0)
 			enclos.nettoyerEnclos();
 		else {
-			for (Animal animal : enclos.getLesAnimaux())
-				enclos.deleteAnimal(animal);
+			Iterator<Animal> itr = enclos.getLesAnimaux().iterator();            
+			while(itr.hasNext()){
+			    Animal animal = itr.next();
+			    itr.remove();
+			}
 			enclos.nettoyerEnclos();
 		}
 			

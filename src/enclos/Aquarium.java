@@ -17,9 +17,10 @@ public class Aquarium extends Enclos <AnimalNageant> {
 	}
 	private EtatA etatProfondeur;
 	private EtatA etatSalinite;
+	
 
-	public Aquarium(String nom, float superficie, int nbAnimauxMax, float profondeur, float saliniteEau) {
-		super(nom, superficie, nbAnimauxMax);
+	public Aquarium(String nom, float superficie, int nbAnimauxMax, float profondeur, float saliniteEau, List<AnimalNageant> list) {
+		super(nom, superficie, nbAnimauxMax, list);
 		this.profondeur = profondeur;
 		this.saliniteEau = saliniteEau;
 		this.etatProfondeur = EtatA.Bon;

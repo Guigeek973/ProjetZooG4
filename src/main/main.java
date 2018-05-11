@@ -51,19 +51,15 @@ public class main {
 		listN.add(r2);
 		listV.add(a1);
 		listV.add(a2);
-		Aquarium aquarium = new Aquarium("Grand Aquarium", 250, 10, 15, 4);
-		aquarium.setLesAnimaux(listN);
-		Voliere voliere=  new Voliere("Voliere à Aigles", 50, 10, 15);
-		voliere.setLesAnimaux(listV);
-		EnclosStandard enclos = new EnclosStandard("Enclos des prédateurs", 100, 10);
-		enclos.setLesAnimaux(listT);
+		Aquarium aquarium = new Aquarium("Grand Aquarium", 250, 10, 15, 4, listN);
+		Voliere voliere=  new Voliere("Voliere à Aigles", 50, 10, 15, listV);
+		EnclosStandard enclos = new EnclosStandard("Enclos des prédateurs", 100, 10, listT);
 		List<Enclos<?>> listE= new ArrayList<Enclos<?>>();
 		listE.add(aquarium);
 		listE.add(voliere);
 		listE.add(enclos);
 		Employe employe = new Employe("Bob", SexeEmp.Male, 32);
-		Zoo zoo = new Zoo("Zootopia", employe, 5, 3);
-		zoo.setListEnclos(listE);
+		Zoo zoo = new Zoo("Zootopia", employe, 5, 3, listE);
 		
 		int nbAction = 0;
 		int nbActionZoo = 0;
