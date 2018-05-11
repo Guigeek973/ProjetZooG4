@@ -34,9 +34,9 @@ public class Aigle extends AnimalVolant implements IOvipare {
 				Random rand = new Random();
 				int nbRandom = rand.nextInt(2 - 1 + 1) + 1;
 				if (nbRandom == 2)
-					list.add(new Aigle(this.getNomEspece(), Sexe.Male, 100, 10, 0));
+					this.getEnclos().addAnimal(new Aigle(this.getNomEspece(), Sexe.Male, 100, 10, 0));
 				else if (nbRandom == 1)
-					list.add(new Aigle(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
+					this.getEnclos().addAnimal(new Aigle(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
 			}
 		}
 		return list;
