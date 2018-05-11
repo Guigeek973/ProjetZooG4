@@ -25,6 +25,7 @@ public class Baleine extends AnimalNageant implements IMammifere{
 
 	@Override
 	public void mettreBas() {
+<<<<<<< Updated upstream
 		Random rand = new Random();
 		List<Animal> list = new ArrayList<Animal>();
 		int nbEnfants = 0;
@@ -38,6 +39,9 @@ public class Baleine extends AnimalNageant implements IMammifere{
 					this.getEnclos().addAnimal(new Baleine(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
 			}
 		}	
+=======
+		List<Animal> list = new ArrayList<Animal>();
+>>>>>>> Stashed changes
 	}
 
 	@Override
