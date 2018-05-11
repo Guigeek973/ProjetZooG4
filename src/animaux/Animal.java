@@ -85,6 +85,10 @@ public abstract class Animal {
 	public void manger() {
 		this.setIndicateurFaim(100);
 	}
+	public void baisserFaim() {
+		int nb = this.getIndicateurFaim() - 30;
+		this.setIndicateurFaim(nb);
+	}
 	public abstract void crier();
 	
 	public void etreSoigne() {
@@ -112,8 +116,7 @@ public abstract class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal [nomEspece=" + nomEspece + ", sexe=" + sexe + ", poids=" + poids + ", taille=" + taille
-				+ ", age=" + age + ", indicateurFaim=" + indicateurFaim + ", indicateurSommeil=" + indicateurSommeil
-				+ ", indicateurSante=" + indicateurSante + ", sexe=" + sexe + "]";
+		return "[" + nomEspece + ", " + sexe + ", " + poids + " kg, " + taille + " cm, " + age + " ans, " + indicateurFaim + " de faim, " + indicateurSommeil 
+				+ " de sommeil, " + indicateurSante + "de santé " + "]";
 	}
 }

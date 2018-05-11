@@ -70,6 +70,7 @@ public abstract class Enclos <T>{
 		((Animal) animal).setEnclos(null);
 	}
 	public void nourrirAllAnimals() {
+		System.out.println("On nourrit tous les animaux de l'enclos :");
 		for (T animal : this.lesAnimaux) {
 			Animal a = (Animal) animal;
 			a.manger();
@@ -79,18 +80,20 @@ public abstract class Enclos <T>{
 		if (this.getLesAnimaux().size() == 0) {
 			if (this.proprete == EtatProprete.Mauvais) {
 				this.setProprete(EtatProprete.Correct);
+				System.out.println("Enclos maintenance correct."  + "\n");
 			}
 			else if (this.proprete == EtatProprete.Correct) {
 				this.proprete = EtatProprete.Bon;
+				System.out.println("Enclos maintenant en bon etat."  + "\n");
 			}
-			else System.out.println("Enclos deja en bon etat.");
+			else System.out.println("Enclos deja en bon etat."  + "\n");
 		}
-		else System.out.println("Veuillez vider l'enclos avant.");
+		else System.out.println("Veuillez vider l'enclos avant."  + "\n");
 	}
 
 	@Override
 	public String toString() {
-		return "Enclos [nom=" + nom + ", superficie=" + superficie + ", nbAnimauxMax=" + nbAnimauxMax + ", proprete=" + proprete + "]";
+		return "[" + nom + ", proprete=" + proprete + ", " + superficie + " m², " + nbAnimauxMax + " animaux max ]";
 	}
 	
 }

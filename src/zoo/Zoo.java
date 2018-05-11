@@ -144,44 +144,51 @@ public class Zoo {
 		Scanner sc = new Scanner(System.in);
 		int i = sc.nextInt();
 		
-	    System.out.println("Choisir l'action à effectuer : ");
-	    System.out.println("1.Examiner l'enclos et son contenu");
-	    System.out.println("2.Transferer un animal");
-	    System.out.println("3.Nourrir les animaux");
-	    System.out.println("4.Nettoyer l'enclos");
-	    int y = sc.nextInt();
-	    switch (y) {
-	    	case 1 : 
-	    		 this.getEmployé().examinerEnclos((Enclos<Animal>) this.getListEnclos().get(i-1));
-	    		break;
-	    	case 2 : 
-	    		 System.out.println("Selectionnez l'animal que vous souhaitez transférer :");
-	    		 System.out.println(this.getListEnclos().get(i-1).toString());
-	    		 int it1 = 0;
-	    		 for (Animal a : (List<Animal>) this.getListEnclos().get(i-1).getLesAnimaux()) {
-	    			 it1 += 1;
-	    			 Animal animal = (Animal) a;
-	    			 System.out.println(it1 + "." + animal.toString());
-	    		 }
-	    		 int z = sc.nextInt();
-	    		 System.out.println("Selectionnez l'enclos vers lequel transferer :");
-	    		 int ite = 0;
-	    		 for (Enclos<?> enclos : this.getListEnclos()) {
-	    				ite += 1;
-	    				System.out.println(ite + "." + enclos.toString());
-	    			}
-	    		 int a = sc.nextInt();
-	    		 this.getEmployé().transférerAnimalToEnclos((Animal)this.getListEnclos().get(i-1).getLesAnimaux().get(z-1), (Enclos<Animal>)this.getListEnclos().get(i-1), (Enclos<Animal>)this.getListEnclos().get(a-1));
-	    		break;
-	    	case 3 : 
-	    		this.getEmployé().nourrirAnimauxEnclos((Enclos<Animal>)this.getListEnclos().get(i-1));
-	    		break;
-	    	case 4 : 
-	    		this.getEmployé().nettoyerEnclos((Enclos<Animal>)this.getListEnclos().get(i-1));
-	    		break;
-	    	default : 
-	    		break;
-	    }
+		outerloop:
+		while (true) {
+			System.out.println("Choisir l'action à effectuer : ");
+		    System.out.println("1.Examiner l'enclos et son contenu");
+		    System.out.println("2.Transferer un animal");
+		    System.out.println("3.Nourrir les animaux");
+		    System.out.println("4.Nettoyer l'enclos");
+		    System.out.println("5.Quitter l'enclos");
+		    int y = sc.nextInt();
+		    switch (y) {
+		    	case 1 : 
+		    		 this.getEmployé().examinerEnclos((Enclos<Animal>) this.getListEnclos().get(i-1));
+		    		break;
+		    	case 2 : 
+		    		 System.out.println("Selectionnez l'animal que vous souhaitez transférer :");
+		    		 System.out.println(this.getListEnclos().get(i-1).toString());
+		    		 int it1 = 0;
+		    		 for (Animal a : (List<Animal>) this.getListEnclos().get(i-1).getLesAnimaux()) {
+		    			 it1 += 1;
+		    			 Animal animal = (Animal) a;
+		    			 System.out.println(it1 + "." + animal.toString());
+		    		 }
+		    		 int z = sc.nextInt();
+		    		 System.out.println("Selectionnez l'enclos vers lequel transferer :");
+		    		 int ite = 0;
+		    		 for (Enclos<?> enclos : this.getListEnclos()) {
+		    				ite += 1;
+		    				System.out.println(ite + "." + enclos.toString());
+		    			}
+		    		 int a = sc.nextInt();
+		    		 this.getEmployé().transférerAnimalToEnclos((Animal)this.getListEnclos().get(i-1).getLesAnimaux().get(z-1), (Enclos<Animal>)this.getListEnclos().get(i-1), (Enclos<Animal>)this.getListEnclos().get(a-1));
+		    		break;
+		    	case 3 : 
+		    		this.getEmployé().nourrirAnimauxEnclos((Enclos<Animal>)this.getListEnclos().get(i-1));
+		    		break;
+		    	case 4 : 
+		    		this.getEmployé().nettoyerEnclos((Enclos<Animal>)this.getListEnclos().get(i-1));
+		    		break;
+		    	case 5 : 
+		    		break outerloop;
+		    	default : 
+		    		break;
+		    }
+		}
+	    
 	}
 
 }

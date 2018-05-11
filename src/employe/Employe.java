@@ -67,5 +67,6 @@ public class Employe {
 	public void transférerAnimalToEnclos(Animal animal, Enclos<Animal> enclosA, Enclos<Animal> enclosB) {
 		enclosA.deleteAnimal(animal);
 		enclosB.addAnimal(animal);
+		System.out.println("Animal transféré vers " + enclosB.toString() + "\n");
 	}
 }

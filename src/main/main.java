@@ -66,12 +66,16 @@ public class main {
 			while (nbActionZoo < 1) {
 				nbActionZoo += 1;
 				System.out.println("Modification aléatoire des animaux et enclos par le Zoo...");
+				System.out.println("Modification animaux...");
 				zoo.modifierEtatAnimaux();
-				zoo.modifierEtatEnclos();
-				System.out.println("Attente de la fin du processus...");
 				//Les animaux perdent 30 de faim tous les jours
+				for (Animal animal : zoo.getAnimauxAllEnclos()) {
+					animal.baisserFaim();
+				}
+				System.out.println("Modification enclos...");
+				zoo.modifierEtatEnclos();
 			}
-			while (nbAction <= 5) {
+			while (nbAction < 4) {
 				nbAction += 1;
 				zoo.donnerLaMain();
 			}
