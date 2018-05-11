@@ -63,9 +63,11 @@ public abstract class Enclos <T>{
 	}
 	public void addAnimal(T animal) {
 		this.lesAnimaux.add(animal);
+		((Animal) animal).setEnclos(this);
 	}
 	public void deleteAnimal(T animal) {
 		this.lesAnimaux.remove(this.lesAnimaux.indexOf(animal));
+		((Animal) animal).setEnclos(null);
 	}
 	public void nourrirAllAnimals() {
 		for (T animal : this.lesAnimaux) {
@@ -88,12 +90,6 @@ public abstract class Enclos <T>{
 
 	@Override
 	public String toString() {
-		String textAnimals = null;
-		for(T animal : this.getLesAnimaux()) {
-			Animal a = (Animal) animal;
-			textAnimals = "nom=" + a.getNomEspece() + " age=" + a.getAge() + " poids=" + a.getPoids() + 
-					" taille=" + a.getTaille() + " sexe=" + a.getSexe();
-		}
 		return "Enclos [nom=" + nom + ", superficie=" + superficie + ", nbAnimauxMax=" + nbAnimauxMax + ", proprete=" + proprete + "]";
 	}
 	

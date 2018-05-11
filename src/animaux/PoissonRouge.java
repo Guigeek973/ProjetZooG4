@@ -2,6 +2,7 @@ package animaux;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import animaux.Animal.Sexe;
 
@@ -22,13 +23,8 @@ public class PoissonRouge extends AnimalNageant implements IOvipare{
 	}
 
 	@Override
-	public List<Animal> pondre() {
-		List<Animal> list = new ArrayList<Animal>();
-		Animal a1 = new PoissonRouge(this.getNomEspece(), Sexe.Male, 100, 10, 0);
-		Animal a2 = new PoissonRouge(this.getNomEspece(), Sexe.Femelle, 100, 10, 0);
-		list.add(a1);
-		list.add(a2);
-		return list;
+	public void pondre() {
+		
 	}
 
 	@Override

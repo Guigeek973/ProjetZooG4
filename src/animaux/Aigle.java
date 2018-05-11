@@ -25,21 +25,20 @@ public class Aigle extends AnimalVolant implements IOvipare {
 	}
 
 	@Override
-	public List<Animal> pondre() {
+	public void pondre() {
+		Random rand = new Random();
 		List<Animal> list = new ArrayList<Animal>();
 		int nbEnfants = 0;
 		if (this.getSexe() == Sexe.Femelle) {
-			while(nbEnfants < this.getNbEnfantsMax()) {
+			while(nbEnfants < rand.nextInt(this.getNbEnfantsMax()-1)+1) {
 				nbEnfants += 1;
-				Random rand = new Random();
 				int nbRandom = rand.nextInt(2 - 1 + 1) + 1;
 				if (nbRandom == 2)
-					list.add(new Aigle(this.getNomEspece(), Sexe.Male, 100, 10, 0));
+					this.getEnclos().addAnimal(new Aigle(this.getNomEspece(), Sexe.Male, 100, 10, 0));
 				else if (nbRandom == 1)
-					list.add(new Aigle(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
+					this.getEnclos().addAnimal(new Aigle(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
 			}
 		}
-		return list;
 	}
 
 }
