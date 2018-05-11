@@ -1,34 +1,36 @@
 package animaux;
 
-public class Aigle extends Animal implements IVolant, IOvipare {
+import java.util.ArrayList;
+import java.util.List;
 
-	public Aigle(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+public class Aigle extends AnimalVolant implements IOvipare {
+
+	public Aigle(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
+		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	public void manger() {
-		System.out.println("L'aigle déchiquète la viande.");
-		
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " picore avec envie !");
 	}
-
 	@Override
 	public void crier() {
-		System.out.println("L'aigle pousse un cri strident !");
-		
+		System.out.println(this.getClass().getSimpleName() + " glatit !");
 	}
-	
 	@Override
 	public void voler() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " vole le plus haut possible !");
 	}
 
 	@Override
-	public void pondre() {
-		// TODO Auto-generated method stub
-		
+	public List<Animal> pondre() {
+		List<Animal> list = new ArrayList<Animal>();
+		Animal a1 = new Aigle(this.getNomEspece(), Sexe.Male, 100, 10, 0);
+		Animal a2 = new Aigle(this.getNomEspece(), Sexe.Femelle, 100, 10, 0);
+		list.add(a1);
+		list.add(a2);
+		return list;
 	}
 
 }

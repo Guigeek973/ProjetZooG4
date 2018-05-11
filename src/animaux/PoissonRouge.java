@@ -1,34 +1,39 @@
 package animaux;
 
-public class PoissonRouge extends Animal implements INageant, IOvipare{
+import java.util.ArrayList;
+import java.util.List;
 
-	public PoissonRouge(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
-		// TODO Auto-generated constructor stub
+import animaux.Animal.Sexe;
+
+public class PoissonRouge extends AnimalNageant implements IOvipare{
+
+	public PoissonRouge(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
 	}
 
 	@Override
-	protected void manger() {
-		System.out.println("Le poisson rouge mange.");
-		
+	public void manger() {
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " va à la surface pour manger !");
+	}
+	@Override
+	public void crier() {
+		System.out.println(this.getClass().getSimpleName() + " semble émettre un bruit...");
 	}
 
 	@Override
-	protected void crier() {
-		System.out.println("Le poisson rouge pousse un petit cri...");
-	}
-
-	@Override
-	public void pondre() {
-		// TODO Auto-generated method stub
-		
+	public List<Animal> pondre() {
+		List<Animal> list = new ArrayList<Animal>();
+		Animal a1 = new PoissonRouge(this.getNomEspece(), Sexe.Male, 100, 10, 0);
+		Animal a2 = new PoissonRouge(this.getNomEspece(), Sexe.Femelle, 100, 10, 0);
+		list.add(a1);
+		list.add(a2);
+		return list;
 	}
 
 	@Override
 	public void nager() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " nage très lenetement");
 	}
 
 }

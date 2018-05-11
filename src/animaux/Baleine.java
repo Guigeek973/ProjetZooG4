@@ -1,35 +1,34 @@
 package animaux;
 
-public class Baleine extends Animal implements INageant, IMammifere{
+import java.util.ArrayList;
+import java.util.List;
 
-	public Baleine(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+public class Baleine extends AnimalNageant implements IMammifere{
+
+	public Baleine(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void manger() {
-		// TODO Auto-generated method stub
-		
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " avale des tonnes de planctons !");
 	}
-
 	@Override
 	public void crier() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " chante !");
 	}
 
 	@Override
-	public void mettreBas() {
-		// TODO Auto-generated method stub
-		
+	public List<Animal> mettreBas() {
+		List<Animal> list = new ArrayList<Animal>();
+		return list;	
 	}
 
 	@Override
 	public void nager() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " nage lentement...");
 	}
 
 }

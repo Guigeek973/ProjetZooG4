@@ -1,34 +1,36 @@
 package animaux;
 
-public class Tigre extends Animal implements ITerrestre, IMammifere{
+import java.util.ArrayList;
+import java.util.List;
 
-	public Tigre(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+public class Tigre extends AnimalTerrestre implements IMammifere{
+
+	public Tigre(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void manger() {
-		System.out.println("Le tigre déchicte le morceau de viande donné.");
+	public void manger() {
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " arrache des morceaux de viande de son repas !");
 	}
-
 	@Override
-	protected void crier() {
-		System.out.println("Groaaaaaaarrrghhh !!!");
+	public void crier() {
+		System.out.println(this.getClass().getSimpleName() + " rugit !");
 	}
 	
+	@Override
+	public List<Animal> mettreBas() {
+		List<Animal> list = new ArrayList<Animal>();
+		return list;	
+	}
 
 	@Override
 	public void vagabonder() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " se promène des les arbres...");
 	}
-	
-	@Override
-	public void mettreBas() {
-		// TODO Auto-generated method stub
-		
-	}
+
+
 
 }

@@ -1,34 +1,32 @@
 package animaux;
 
-public class Loup extends Animal implements ITerrestre, IMammifere{
+import java.util.ArrayList;
+import java.util.List;
 
-	public Loup(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+public class Loup extends AnimalTerrestre implements IMammifere{
+
+	public Loup(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void manger() {
-		System.out.println("Le loup dévore la viande.");
-		
+	public void manger() {
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " dévore son repas !");
 	}
-
 	@Override
-	protected void crier() {
-		System.out.println("Le loup hurle très fort !");
-		
+	public void crier() {
+		System.out.println(this.getClass().getSimpleName() + " hurle !");
 	}
-
 	@Override
 	public void vagabonder() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " vagabonde tranquillement");
 	}
 	
 	@Override
-	public void mettreBas() {
-		// TODO Auto-generated method stub
-		
+	public List<Animal> mettreBas() {
+		List<Animal> list = new ArrayList<Animal>();
+		return list;	
 	}
 }

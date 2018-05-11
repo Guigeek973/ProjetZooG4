@@ -2,34 +2,36 @@ package animaux;
 
 public abstract class Animal {
 	private String nomEspece;
-	private Boolean isMale;
 	private float poids;
 	private float taille;
 	private int age ;
 	private int indicateurFaim;
 	private Boolean indicateurSommeil;
 	private Boolean indicateurSante;
+	public enum Sexe {
+		Male,
+		Femelle
+	}
+	private Sexe sexe;
 	
-	public Animal(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-				  Boolean indicateurSommeil, Boolean indicateurSante) {
+	public Animal(String nomEspece, Sexe sex, float poids, float taille, int age) {
 		super();
 		this.nomEspece = nomEspece;
-		this.isMale = isMale;
+		this.sexe = sex;
 		this.poids = poids;
 		this.taille = taille;
 		this.age = age;
 		this.indicateurFaim = 100;
-		this.indicateurSommeil = indicateurSommeil;
-		this.indicateurSante = indicateurSante;
+		this.indicateurSommeil = false;
+		this.indicateurSante = true;
 	}
 	
 	
-
 	public String getNomEspece() {
 		return nomEspece;
 	}
-	public Boolean getIsMale() {
-		return isMale;
+	public Sexe getSexe() {
+		return sexe;
 	}
 	public float getPoids() {
 		return poids;
@@ -52,8 +54,8 @@ public abstract class Animal {
 	public void setNomEspece(String nomEspece) {
 		this.nomEspece = nomEspece;
 	}
-	public void setSexe(Boolean isMale) {
-		this.isMale = isMale;
+	public void setSexe(Sexe s) {
+		this.sexe = s;
 	}
 	public void setPoids(float poids) {
 		this.poids = poids;
@@ -74,10 +76,10 @@ public abstract class Animal {
 		this.indicateurSante = indicateurSante;
 	}
 	
-	protected void manger() {
+	public void manger() {
 		this.setIndicateurFaim(100);
 	}
-	protected abstract void crier();
+	public abstract void crier();
 	
 	public void etreSoigne() {
 		this.setIndicateurSante(true); 
@@ -87,5 +89,14 @@ public abstract class Animal {
 			this.setIndicateurSommeil(false); 
 		}
 		else this.setIndicateurSommeil(true); 
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Animal [nomEspece=" + nomEspece + ", sexe=" + sexe + ", poids=" + poids + ", taille=" + taille
+				+ ", age=" + age + ", indicateurFaim=" + indicateurFaim + ", indicateurSommeil=" + indicateurSommeil
+				+ ", indicateurSante=" + indicateurSante + ", sexe=" + sexe + "]";
 	}
 }

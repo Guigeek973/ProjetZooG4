@@ -2,13 +2,18 @@ package employe;
 
 import animaux.Animal;
 import enclos.Enclos;
+import zoo.Zoo;
 
 public class Employe {
 	private String nom;
-	private String sexe;
+	public enum SexeEmp {
+		Male,
+		Femelle
+	}
+	private SexeEmp sexe;
 	private int age;
 	
-	public Employe(String nom, String sexe, int age) {
+	public Employe(String nom, SexeEmp sexe, int age) {
 		super();
 		this.nom = nom;
 		this.sexe = sexe;
@@ -18,7 +23,7 @@ public class Employe {
 	public String getNom() {
 		return nom;
 	}
-	public String getSexe() {
+	public SexeEmp getSexe() {
 		return sexe;
 	}
 	public int getAge() {
@@ -27,7 +32,7 @@ public class Employe {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public void setSexe(String sexe) {
+	public void setSexe(SexeEmp sexe) {
 		this.sexe = sexe;
 	}
 	public void setAge(int age) {
@@ -35,15 +40,27 @@ public class Employe {
 	}
 	
 	public void examinerEnclos (Enclos<Animal> enclos) {
-		//en affichant les caractéristiques de l’enclos ainsi que la liste des animaux) ;
+		System.out.println(enclos.toString());
+		for (Animal a : enclos.getLesAnimaux()) {
+			System.out.println(a.toString());
+		}
+		System.out.println("\n");
 	}
 	public void nettoyerEnclos(Enclos<Animal> enclos) {
-		
+		if (enclos.getNbAnimauxPresents() == 0)
+			enclos.nettoyerEnclos();
+		else {
+			for (Animal animal : enclos.getLesAnimaux())
+				enclos.deleteAnimal(animal);
+			enclos.nettoyerEnclos();
+		}
+			
 	}
 	public void nourrirAnimauxEnclos(Enclos<Animal> enclos) {
-		
+		enclos.nourrirAllAnimals();
 	}
-	public void transférerAnimalToEnclos(Animal a, Enclos<Animal> enclos) {
-		
+	public void transférerAnimalToEnclos(Animal animal, Enclos<Animal> enclosA, Enclos<Animal> enclosB) {
+		enclosA.deleteAnimal(animal);
+		enclosB.addAnimal(animal);
 	}
 }

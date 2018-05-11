@@ -1,33 +1,34 @@
 package animaux;
 
-public class Requin extends Animal implements INageant, IMammifere {
+import java.util.ArrayList;
+import java.util.List;
 
-	public Requin(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+public class Requin extends AnimalNageant implements IMammifere {
+
+	public Requin(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void manger() {
-		System.out.println("Le requin déchire la chair de poisson donnée.");
+	public void manger() {
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " arrache le morceau de poisson donné !");
+	}
+	@Override
+	public void crier() {
+		System.out.println(this.getClass().getSimpleName() + " sort de l'eau et pousse un cri !");
 	}
 
 	@Override
-	protected void crier() {
-		System.out.println("Le requin sort de l'eau et pousse un cri !");
-	}
-
-	@Override
-	public void mettreBas() {
-		// TODO Auto-generated method stub
-		
+	public List<Animal> mettreBas() {
+		List<Animal> list = new ArrayList<Animal>();
+		return list;	
 	}
 
 	@Override
 	public void nager() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + "  nage à la recherche de quelque chose à manger...");
 	}
 
 }

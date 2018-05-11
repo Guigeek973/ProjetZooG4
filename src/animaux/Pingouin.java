@@ -1,34 +1,40 @@
 package animaux;
 
-public class Pingouin extends Animal implements INageant, IOvipare{
+import java.util.ArrayList;
+import java.util.List;
 
-	public Pingouin(String nomEspece, Boolean isMale, float poids, float taille, int age, int indicateurFaim,
-			Boolean indicateurSommeil, Boolean indicateurSante) {
-		super(nomEspece, isMale, poids, taille, age, indicateurFaim, indicateurSommeil, indicateurSante);
+import animaux.Animal.Sexe;
+
+public class Pingouin extends AnimalNageant implements IOvipare{
+
+	public Pingouin(String nomEspece, Sexe sex, float poids, float taille, int age) {
+		super(nomEspece, sex, poids, taille, age);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void manger() {
-		System.out.println("Le pingouin se jette sur les poissons données.");
-		
+	public void manger() {
+		super.manger();
+		System.out.println(this.getClass().getSimpleName() + " engloutit le poisson !");
+	}
+	@Override
+	public void crier() {
+		System.out.println(this.getClass().getSimpleName() + " jabote !");
 	}
 
 	@Override
-	protected void crier() {
-		System.out.println("Le pingouin pousse un cri !");
-	}
-
-	@Override
-	public void pondre() {
-		// TODO Auto-generated method stub
-		
+	public List<Animal> pondre() {
+		List<Animal> list = new ArrayList<Animal>();
+		Animal a1 = new Pingouin(this.getNomEspece(), Sexe.Male, 100, 10, 0);
+		Animal a2 = new Pingouin(this.getNomEspece(), Sexe.Femelle, 100, 10, 0);
+		list.add(a1);
+		list.add(a2);
+		return list;	
 	}
 
 	@Override
 	public void nager() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(this.getClass().getSimpleName() + " nage très vite !");
 	}
 
 
