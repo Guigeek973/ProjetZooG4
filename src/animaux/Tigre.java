@@ -41,9 +41,6 @@ public class Tigre extends AnimalTerrestre implements IMammifere{
 
 	@Override
 	public void vagabonder() {
-		System.out.println(this.getClass().getSimpleName() + " se promène des les arbres...");
+		System.out.println(this.getClass().getSimpleName() + " se promï¿½ne des les arbres...");
 	}
-
-
-
 }
