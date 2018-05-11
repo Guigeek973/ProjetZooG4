@@ -1,5 +1,7 @@
 package animaux;
 
+import enclos.Enclos;
+
 public abstract class Animal {
 	private String nomEspece;
 	private float poids;
@@ -8,11 +10,16 @@ public abstract class Animal {
 	private int indicateurFaim;
 	private Boolean indicateurSommeil;
 	private Boolean indicateurSante;
+	private int nbEnfantsMax;
+	private Enclos enclos;
+
+
 	public enum Sexe {
 		Male,
 		Femelle
 	}
 	private Sexe sexe;
+	
 	
 	public Animal(String nomEspece, Sexe sex, float poids, float taille, int age) {
 		super();
@@ -25,7 +32,6 @@ public abstract class Animal {
 		this.indicateurSommeil = false;
 		this.indicateurSante = true;
 	}
-	
 	
 	public String getNomEspece() {
 		return nomEspece;
@@ -90,7 +96,18 @@ public abstract class Animal {
 		}
 		else this.setIndicateurSommeil(true); 
 	}
-
+	public int getNbEnfantsMax() {
+		return nbEnfantsMax;
+	}
+	public void setNbEnfantsMax(int nbEnfantsMax) {
+		this.nbEnfantsMax = nbEnfantsMax;
+	}
+	public Enclos getEnclos() {
+		return enclos;
+	}
+	public void setEnclos(Enclos enclos) {
+		this.enclos = enclos;
+	}
 	
 
 	@Override
