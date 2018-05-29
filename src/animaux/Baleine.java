@@ -25,23 +25,20 @@ public class Baleine extends AnimalNageant implements IMammifere{
 
 	@Override
 	public void mettreBas() {
-<<<<<<< Updated upstream
 		Random rand = new Random();
 		List<Animal> list = new ArrayList<Animal>();
 		int nbEnfants = 0;
+		int nbRandomChild = rand.nextInt(this.getNbEnfantsMax()-1)+1;
 		if (this.getSexe() == Sexe.Femelle) {
-			while(nbEnfants < rand.nextInt(this.getNbEnfantsMax()-1)+1) {
+			while(nbEnfants < nbRandomChild) {
 				nbEnfants += 1;
-				int nbRandom = rand.nextInt(2 - 1 + 1) + 1;
-				if (nbRandom == 2)
-					this.getEnclos().addAnimal(new Baleine(this.getNomEspece(), Sexe.Male, 100, 10, 0));
-				else if (nbRandom == 1)
-					this.getEnclos().addAnimal(new Baleine(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
+				int nbRandomSexe = rand.nextInt(2 - 1 + 1) + 1;
+				if (nbRandomSexe == 2)
+					this.getEnclos().addAnimal((Animal) new Baleine(this.getNomEspece(), Sexe.Male, 100, 10, 0));
+				else if (nbRandomSexe == 1)
+					this.getEnclos().addAnimal((Animal)new Baleine(this.getNomEspece(), Sexe.Femelle, 100, 10, 0));
 			}
 		}	
-=======
-		List<Animal> list = new ArrayList<Animal>();
->>>>>>> Stashed changes
 	}
 
 	@Override

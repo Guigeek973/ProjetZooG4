@@ -1,16 +1,17 @@
 package enclos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import animaux.Animal;
 
-public abstract class Enclos <T>{
+public abstract class Enclos<T extends Animal>{
 	
 	private String nom;
 	private float superficie;
 	private int nbAnimauxMax;
-	private List<T> lesAnimaux;
+	private List<Animal> lesAnimaux;
 	public enum EtatProprete {
 		Mauvais,
 		Correct,
@@ -18,13 +19,13 @@ public abstract class Enclos <T>{
 	}
 	private EtatProprete proprete;
 	
-	public Enclos(String nom, float superficie, int nbAnimauxMax, List<T> list) {
+	public Enclos(String nom, float superficie, int nbAnimauxMax) {
 		super();
 		this.nom = nom;
 		this.superficie = superficie;
 		this.nbAnimauxMax = nbAnimauxMax;
-		this.lesAnimaux = list;
 		this.proprete = EtatProprete.Bon;
+		this.lesAnimaux = new ArrayList<Animal>();
 	}
 	
 	public String getNom() {
@@ -46,10 +47,10 @@ public abstract class Enclos <T>{
 	public void setNbAnimauxMax(int nbAnimauxMax) {
 		this.nbAnimauxMax = nbAnimauxMax;
 	}
-	public List<T> getLesAnimaux() {
+	public List<Animal> getLesAnimaux() {
 		return lesAnimaux;
 	}
-	public void setLesAnimaux(List<T> lesAnimaux) {
+	public void setLesAnimaux(List<Animal> lesAnimaux) {
 		this.lesAnimaux = lesAnimaux;
 	}
 	public EtatProprete getProprete() {
@@ -61,19 +62,26 @@ public abstract class Enclos <T>{
 	public int getNbAnimauxPresents() {
 		return lesAnimaux.size();
 	}
-	public void addAnimal(T animal) {
-		this.lesAnimaux.add(animal);
-		((Animal) animal).setEnclos(this);
+	public void addAnimal(Animal animal) {
+		if (this.getNbAnimauxPresents() < this.getNbAnimauxMax()) {
+			this.getLesAnimaux().add(animal);
+			animal.setEnclos(this);
+		}
 	}
-	public void deleteAnimal(T animal) {
+	public void deleteAnimal(Animal animal) {
 		this.lesAnimaux.remove(this.lesAnimaux.indexOf(animal));
-		((Animal) animal).setEnclos(null);
+		animal.setEnclos(null);
 	}
 	public void nourrirAllAnimals() {
 		System.out.println("On nourrit tous les animaux de l'enclos :");
-		for (T animal : this.lesAnimaux) {
-			Animal a = (Animal) animal;
-			a.manger();
+		for (Animal animal : this.lesAnimaux) {
+			animal.manger();
+		}
+	}
+	public void soignerAllAnimals() {
+		System.out.println("On soigne tous les animaux de l'enclos :");
+		for (Animal animal : this.lesAnimaux) {
+			animal.etreSoigne();
 		}
 	}
 	public void nettoyerEnclos() {
@@ -93,7 +101,7 @@ public abstract class Enclos <T>{
 
 	@Override
 	public String toString() {
-		return "[" + nom + ", proprete=" + proprete + ", " + superficie + " m², " + nbAnimauxMax + " animaux max ]";
+		return "[" + nom + ", Etat " + proprete + ", " + superficie + " m², " + nbAnimauxMax + " animaux max ]";
 	}
 	
 }

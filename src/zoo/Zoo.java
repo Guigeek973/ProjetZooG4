@@ -12,6 +12,7 @@ import enclos.Aquarium;
 import enclos.Aquarium.EtatA;
 import enclos.Enclos;
 import enclos.Enclos.EtatProprete;
+import enclos.EnclosStock;
 import enclos.Voliere;
 import enclos.Voliere.EtatV;
 
@@ -84,7 +85,7 @@ public class Zoo {
 				Random rand = new Random();
 				int nbAleatoire = rand.nextInt(3 - 1 + 1) + 1;
 				if (nbAleatoire == 3) {
-					anim.setIndicateurFaim(30);
+					anim.baisserFaim();
 				}
 				else if (nbAleatoire == 2) {
 					anim.setIndicateurSante(false);
@@ -142,7 +143,7 @@ public class Zoo {
 		}
 		System.out.println("Choisir l'enclos à visiter :"); 
 		Scanner sc = new Scanner(System.in);
-		int i = sc.nextInt();
+		int numEnclos = sc.nextInt();
 		
 		outerloop:
 		while (true) {
@@ -150,39 +151,84 @@ public class Zoo {
 		    System.out.println("1.Examiner l'enclos et son contenu");
 		    System.out.println("2.Transferer un animal");
 		    System.out.println("3.Nourrir les animaux");
-		    System.out.println("4.Nettoyer l'enclos");
-		    System.out.println("5.Quitter l'enclos");
-		    int y = sc.nextInt();
-		    switch (y) {
+		    System.out.println("4.Soigner les animaux");
+		    System.out.println("5.Nettoyer l'enclos");
+		    System.out.println("6.Transferer tous les animaux d'un enclos de stockage");
+		    System.out.println("7.Quitter l'enclos");
+		    int action = sc.nextInt();
+		    switch (action) {
 		    	case 1 : 
-		    		 this.getEmployé().examinerEnclos((Enclos<Animal>) this.getListEnclos().get(i-1));
+		    		this.getEmployé().examinerEnclos(this.getListEnclos().get(numEnclos-1));
 		    		break;
 		    	case 2 : 
 		    		 System.out.println("Selectionnez l'animal que vous souhaitez transférer :");
-		    		 System.out.println(this.getListEnclos().get(i-1).toString());
+		    		 System.out.println(this.getListEnclos().get(numEnclos-1).toString());
 		    		 int it1 = 0;
-		    		 for (Animal a : (List<Animal>) this.getListEnclos().get(i-1).getLesAnimaux()) {
+		    		 for (Animal a : this.getListEnclos().get(numEnclos-1).getLesAnimaux()) {
 		    			 it1 += 1;
 		    			 Animal animal = (Animal) a;
 		    			 System.out.println(it1 + "." + animal.toString());
 		    		 }
-		    		 int z = sc.nextInt();
-		    		 System.out.println("Selectionnez l'enclos vers lequel transferer :");
+		    		 int numAnimal = sc.nextInt();
+		    		 System.out.println("Selectionnez l'enclos vers lequel le transferer :");
 		    		 int ite = 0;
-		    		 for (Enclos<?> enclos : this.getListEnclos()) {
-		    				ite += 1;
-		    				System.out.println(ite + "." + enclos.toString());
+		    		 for (Enclos<? extends Animal> enclos : this.getListEnclos()) {
+		    			 	ite += 1;
+		    			 	if(this.getListEnclos().get(numEnclos-1).getClass() == enclos.getClass()) {
+		    			 		System.out.println(ite + "." + enclos.toString());
+		    			 	}
 		    			}
-		    		 int a = sc.nextInt();
-		    		 this.getEmployé().transférerAnimalToEnclos((Animal)this.getListEnclos().get(i-1).getLesAnimaux().get(z-1), (Enclos<Animal>)this.getListEnclos().get(i-1), (Enclos<Animal>)this.getListEnclos().get(a-1));
+		    		 int numEnclosTransfert = sc.nextInt();
+		    		 if (this.getListEnclos().get(numEnclos-1).getClass() == this.getListEnclos().get(numEnclosTransfert-1).getClass()) {
+		    			 this.getEmployé().transférerAnimalToEnclos(this.getListEnclos().get(numEnclos-1).getLesAnimaux().get(numAnimal-1), this.getListEnclos().get(numEnclos-1), this.getListEnclos().get(numEnclosTransfert-1));
+		    		 }
+		    		 else {
+		    			 System.out.println("Impossible l'enclos ne correspond pas pour cet animal " + "\n");
+		    		 }
 		    		break;
 		    	case 3 : 
-		    		this.getEmployé().nourrirAnimauxEnclos((Enclos<Animal>)this.getListEnclos().get(i-1));
+		    		 this.getEmployé().nourrirAnimauxEnclos(this.getListEnclos().get(numEnclos-1));
 		    		break;
-		    	case 4 : 
-		    		this.getEmployé().nettoyerEnclos((Enclos<Animal>)this.getListEnclos().get(i-1));
+		    	case 4 :
+		    		this.getEmployé().soignerAnimauxEnclos(this.getListEnclos().get(numEnclos-1));
 		    		break;
 		    	case 5 : 
+		    		if (this.getListEnclos().get(numEnclos-1).getProprete() == EtatProprete.Mauvais || this.getListEnclos().get(numEnclos-1).getProprete() == EtatProprete.Correct) {
+			    		 System.out.println("Selectionnez l'enclos vers lequel le transferer :");
+			    		 int ita = 0;
+			    		 for (Enclos<? extends Animal> enclos : this.getListEnclos()) {
+			    			 ita += 1;
+			    			 	if(this.getListEnclos().get(numEnclos-1).getClass() == enclos.getClass() && this.getListEnclos().get(numEnclos-1) != enclos) {
+				    				System.out.println(ita + "." + enclos.toString());
+			    			 	}
+			    			}
+			    		 int numEnclosNettoyage = sc.nextInt();
+			    		 this.getEmployé().nettoyerEnclos(this.getListEnclos().get(numEnclos-1),this.getListEnclos().get(numEnclosNettoyage-1) );
+		    		}
+		    		else {
+	    				System.out.println("Enclos deja en bon état." + "\n");
+	    			}
+		    		break;
+		    	case 6 :
+		    		System.out.println("Selectionnez l'enclos vers lequel le transferer :");
+		    		 int itr = 0;
+		    		 for (Enclos<? extends Animal> enclos : this.getListEnclos()) {
+		    			 	itr += 1;
+		    			 	if(this.getListEnclos().get(numEnclos-1).getClass() == enclos.getClass()  && this.getListEnclos().get(numEnclos-1) != enclos) {
+		    			 		System.out.println(itr + "." + enclos.toString());
+		    			 	}
+		    			}
+		    		 int numEnclosTransfertAll = sc.nextInt();
+		    		 if (this.getListEnclos().get(numEnclos-1).getClass() == this.getListEnclos().get(numEnclosTransfertAll-1).getClass()  && this.getListEnclos().get(numEnclos-1) != this.getListEnclos().get(numEnclosTransfertAll-1)) {
+		    			 for(Animal animal : this.getListEnclos().get(numEnclos-1).getLesAnimaux()) {
+			    			 this.getEmployé().transférerAnimalToEnclos(animal, this.getListEnclos().get(numEnclos-1), this.getListEnclos().get(numEnclosTransfertAll-1));
+		    			 }
+		    		 }
+		    		 else {
+		    			 System.out.println("Impossible l'enclos ne correspond pas pour cet animal " + "\n");
+		    		 }
+		    		break;
+		    	case 7 : 
 		    		break outerloop;
 		    	default : 
 		    		break;

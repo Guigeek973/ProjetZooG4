@@ -2,9 +2,10 @@ package enclos;
 
 import java.util.List;
 
+import animaux.Animal;
 import animaux.AnimalVolant;
 
-public class Voliere extends Enclos <AnimalVolant> {
+public class Voliere extends Enclos<AnimalVolant> {
 
 	private float hauteur;
 	public enum EtatV {
@@ -14,8 +15,8 @@ public class Voliere extends Enclos <AnimalVolant> {
 	}
 	private EtatV etatToit;
 	
-	public Voliere(String nom, float superficie, int nbAnimauxMax, float hauteur, List<AnimalVolant> list) {
-		super(nom, superficie, nbAnimauxMax, list);
+	public Voliere(String nom, float superficie, int nbAnimauxMax, float hauteur) {
+		super(nom, superficie, nbAnimauxMax);
 		this.hauteur = hauteur;
 		this.etatToit = EtatV.Bon;
 	}
@@ -32,7 +33,6 @@ public class Voliere extends Enclos <AnimalVolant> {
 		this.etatToit = etatToit;
 	}
 	
-	@Override
 	public void nettoyerEnclos() {
 		super.nettoyerEnclos();
 		if (this.getEtatToit() == EtatV.Mauvais) {

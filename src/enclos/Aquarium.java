@@ -3,10 +3,11 @@ package enclos;
 import java.util.Iterator;
 import java.util.List;
 
+import animaux.Animal;
 import animaux.AnimalNageant;
 import animaux.AnimalVolant;
 
-public class Aquarium extends Enclos <AnimalNageant> {
+public class Aquarium extends Enclos<AnimalNageant> {
 
 	private float profondeur;
 	private float saliniteEau;
@@ -19,8 +20,8 @@ public class Aquarium extends Enclos <AnimalNageant> {
 	private EtatA etatSalinite;
 	
 
-	public Aquarium(String nom, float superficie, int nbAnimauxMax, float profondeur, float saliniteEau, List<AnimalNageant> list) {
-		super(nom, superficie, nbAnimauxMax, list);
+	public Aquarium(String nom, float superficie, int nbAnimauxMax, float profondeur, float saliniteEau) {
+		super(nom, superficie, nbAnimauxMax);
 		this.profondeur = profondeur;
 		this.saliniteEau = saliniteEau;
 		this.etatProfondeur = EtatA.Bon;

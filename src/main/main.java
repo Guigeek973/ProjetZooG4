@@ -9,6 +9,7 @@ import employe.Employe.SexeEmp;
 import enclos.Aquarium;
 import enclos.Enclos;
 import enclos.EnclosStandard;
+import enclos.EnclosStock;
 import enclos.Voliere;
 import zoo.Zoo;
 
@@ -32,37 +33,75 @@ public class main {
 		Aigle a1 = new Aigle("Aigle royal", Sexe.Male, 100, 10, 0);
 		Aigle a2 = new Aigle("Aigle royal", Sexe.Femelle, 100, 10, 0);
 		
-		List<AnimalTerrestre> listT = new ArrayList<AnimalTerrestre>();
-		List<AnimalNageant> listN = new ArrayList<AnimalNageant>();
-		List<AnimalVolant> listV= new ArrayList<AnimalVolant>();
-		listT.add(l1);
-		listT.add(l2);
-		listT.add(o1);
-		listT.add(o2);
-		listT.add(t1);
-		listT.add(t2);
-		listN.add(p1);
-		listN.add(p2);
-		listN.add(po1);
-		listN.add(po2);
-		listN.add(b1);
-		listN.add(b2);
-		listN.add(r1);
-		listN.add(r2);
-		listV.add(a1);
-		listV.add(a2);
-		Aquarium aquarium = new Aquarium("Grand Aquarium", 250, 10, 15, 4, listN);
-		Voliere voliere=  new Voliere("Voliere à Aigles", 50, 10, 15, listV);
-		EnclosStandard enclos = new EnclosStandard("Enclos des prédateurs", 100, 10, listT);
-		List<Enclos<?>> listE= new ArrayList<Enclos<?>>();
+		Aquarium aquarium = new Aquarium("Grand Aquarium", 250, 10, 15, 4);
+		Voliere voliere=  new Voliere("Voliere à Aigles", 50, 10, 15);
+		EnclosStandard enclos = new EnclosStandard("Enclos des prédateurs", 100, 10);
+		Aquarium aquarium1 = new Aquarium("Petit Aquarium", 250, 10, 15, 4);
+		Voliere voliere1=  new Voliere("Voliere à perruche", 50, 10, 15);
+		EnclosStandard enclos1 = new EnclosStandard("Enclos des petits prédateurs", 100, 10);
+		Aquarium aquarium2 = new Aquarium("Aquarium de stockage", 250, 10, 15, 4);
+		Voliere voliere2=  new Voliere("Voliere de stockage", 50, 10, 15);
+		EnclosStandard enclos2 = new EnclosStandard("Enclos terrestre de stockage", 100, 10);
+		
+		enclos.addAnimal(l1);
+		enclos.addAnimal(l2);
+		enclos.addAnimal(l2);
+		enclos.addAnimal(o1);
+		enclos.addAnimal(o1);
+		enclos.addAnimal(o2);
+		enclos.addAnimal(o2);
+		enclos.addAnimal(t1);
+		enclos.addAnimal(t2);
+		enclos.addAnimal(t2);
+
+		
+		enclos1.addAnimal(l1);
+		enclos1.addAnimal(l2);
+		enclos1.addAnimal(o1);
+		enclos1.addAnimal(o2);
+		enclos1.addAnimal(t1);
+		enclos1.addAnimal(t2);
+		
+		aquarium.addAnimal(p1);
+		aquarium.addAnimal(p2);
+		aquarium.addAnimal(p1);
+		aquarium.addAnimal(p2);
+		aquarium.addAnimal(po1);
+		aquarium.addAnimal(po2);
+		aquarium.addAnimal(b1);
+		aquarium.addAnimal(b2);
+		aquarium.addAnimal(r1);
+		aquarium.addAnimal(r2);
+		
+		aquarium1.addAnimal(p1);
+		aquarium1.addAnimal(p2);
+		aquarium1.addAnimal(po1);
+		aquarium1.addAnimal(po2);
+		
+		voliere.addAnimal(a1);
+		voliere.addAnimal(a2);
+		voliere.addAnimal(a1);
+		voliere.addAnimal(a2);
+		
+		voliere1.addAnimal(a1);
+		voliere1.addAnimal(a2);
+		
+		List<Enclos<? extends Animal>> listE= new ArrayList<Enclos<? extends Animal>>();
 		listE.add(aquarium);
 		listE.add(voliere);
 		listE.add(enclos);
+		listE.add(aquarium1);
+		listE.add(voliere1);
+		listE.add(enclos1);
+		listE.add(enclos2);
+		listE.add(aquarium2);
+		listE.add(voliere2);
 		Employe employe = new Employe("Bob", SexeEmp.Male, 32);
 		Zoo zoo = new Zoo("Zootopia", employe, 5, 3, listE);
 		
-		int nbAction = 0;
-		int nbActionZoo = 0;
+		while (true) {
+			int nbAction = 0;
+			int nbActionZoo = 0;
 			while (nbActionZoo < 1) {
 				nbActionZoo += 1;
 				System.out.println("Modification aléatoire des animaux et enclos par le Zoo...");
@@ -75,10 +114,12 @@ public class main {
 				System.out.println("Modification enclos...");
 				zoo.modifierEtatEnclos();
 			}
-			while (nbAction < 4) {
+			
+			while (nbAction < 3) {
 				nbAction += 1;
 				zoo.donnerLaMain();
 			}
+		}	
 	}
 	
 	

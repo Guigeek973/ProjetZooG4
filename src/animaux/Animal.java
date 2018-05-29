@@ -8,10 +8,11 @@ public abstract class Animal {
 	private float taille;
 	private int age ;
 	private int indicateurFaim;
+	private Boolean etatFaim;
 	private Boolean indicateurSommeil;
 	private Boolean indicateurSante;
 	private int nbEnfantsMax;
-	private Enclos enclos;
+	private Enclos<? extends Animal> enclos;
 
 
 	public enum Sexe {
@@ -29,10 +30,14 @@ public abstract class Animal {
 		this.taille = taille;
 		this.age = age;
 		this.indicateurFaim = 100;
+		this.etatFaim = false;
 		this.indicateurSommeil = false;
 		this.indicateurSante = true;
 	}
 	
+	public Boolean getEtatFaim() {
+		return etatFaim;
+	}
 	public String getNomEspece() {
 		return nomEspece;
 	}
@@ -81,13 +86,22 @@ public abstract class Animal {
 	public void setIndicateurSante(Boolean indicateurSante) {
 		this.indicateurSante = indicateurSante;
 	}
+	public void setEtatFaim(Boolean etatFaim) {
+		this.etatFaim = etatFaim;
+	}
 	
 	public void manger() {
 		this.setIndicateurFaim(100);
+		this.setEtatFaim(false);
 	}
 	public void baisserFaim() {
-		int nb = this.getIndicateurFaim() - 30;
-		this.setIndicateurFaim(nb);
+		if (this.indicateurFaim >= 30) {
+			int nb = this.getIndicateurFaim() - 30;
+			this.setIndicateurFaim(nb);
+			if (this.getIndicateurFaim() <= 50) {
+				this.setEtatFaim(true);
+			}
+		}
 	}
 	public abstract void crier();
 	
@@ -106,17 +120,20 @@ public abstract class Animal {
 	public void setNbEnfantsMax(int nbEnfantsMax) {
 		this.nbEnfantsMax = nbEnfantsMax;
 	}
-	public Enclos getEnclos() {
+	public Enclos<? extends Animal> getEnclos() {
 		return enclos;
 	}
-	public void setEnclos(Enclos enclos) {
+	public void setEnclos(Enclos<? extends Animal> enclos) {
 		this.enclos = enclos;
 	}
 	
 
 	@Override
 	public String toString() {
-		return "[" + nomEspece + ", " + sexe + ", " + poids + " kg, " + taille + " cm, " + age + " ans, " + indicateurFaim + " de faim, " + indicateurSommeil 
-				+ " de sommeil, " + indicateurSante + "de santé " + "]";
+		String faim = etatFaim ? "A faim" : "Pas faim";
+		String sommeil = indicateurSommeil ? "Endormi" : "Réveillé";
+		String sante = indicateurSante ? "Bonne santé" : "Mauvaise santé";
+
+		return "[" + nomEspece + ", " + sexe + ", " + poids + " kg, " + taille + " cm, " + age + " ans, " + faim + ", " + sommeil + ", " + sante + "]";
 	}
 }
